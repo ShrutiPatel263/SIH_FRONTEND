@@ -1,11 +1,7 @@
-/* Removed Tailwind directives because Tailwind is not configured or supported in the current build process. */
-/* @tailwind base;
-@tailwind components;
-@tailwind utilities; */
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
 @import "tailwindcss";
+
 * {
   margin: 0;
   padding: 0;
@@ -16,35 +12,51 @@ body {
   font-family: 'Poppins', sans-serif;
   background: linear-gradient(135deg, #f0fdf4 0%, #e0f2fe 100%);
   min-height: 100vh;
+  line-height: 1.6;
 }
 
+/* Improved glass effect with better spacing */
 .glass-effect {
-  background: rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
+/* Enhanced 3D card with proper spacing */
 .card-3d {
   transform-style: preserve-3d;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 2rem;
+  margin: 1rem 0;
+  border-radius: 1rem;
 }
 
 .card-3d:hover {
   transform: rotateY(5deg) rotateX(5deg) translateZ(20px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
+/* Better text gradient */
 .text-gradient {
   background: linear-gradient(135deg, #22c55e, #0ea5e9, #f59e0b);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  font-weight: 700;
 }
 
+/* Enhanced 3D button with proper spacing */
 .btn-3d {
   transform: translateZ(0);
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  padding: 1rem 2rem;
+  margin: 0.5rem;
+  border-radius: 2rem;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .btn-3d::before {
@@ -63,10 +75,11 @@ body {
 }
 
 .btn-3d:hover {
-  transform: translateY(-2px) scale(1.05);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
 }
 
+/* Floating shapes with better positioning */
 .floating-shapes {
   position: fixed;
   top: 0;
@@ -75,19 +88,30 @@ body {
   height: 100%;
   pointer-events: none;
   z-index: -1;
+  overflow: hidden;
 }
 
 .shape {
   position: absolute;
-  opacity: 0.1;
-  animation: float 8s ease-in-out infinite;
+  opacity: 0.08;
+  animation: float 12s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  25% { transform: translateY(-20px) rotate(90deg); }
+  50% { transform: translateY(-40px) rotate(180deg); }
+  75% { transform: translateY(-20px) rotate(270deg); }
 }
 
 .shape:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
-.shape:nth-child(2) { top: 20%; right: 10%; animation-delay: 1s; }
-.shape:nth-child(3) { bottom: 20%; left: 20%; animation-delay: 2s; }
-.shape:nth-child(4) { bottom: 10%; right: 20%; animation-delay: 3s; }
+.shape:nth-child(2) { top: 20%; right: 10%; animation-delay: 2s; }
+.shape:nth-child(3) { bottom: 20%; left: 20%; animation-delay: 4s; }
+.shape:nth-child(4) { bottom: 10%; right: 20%; animation-delay: 6s; }
+.shape:nth-child(5) { top: 50%; left: 5%; animation-delay: 8s; }
+.shape:nth-child(6) { top: 60%; right: 5%; animation-delay: 10s; }
 
+/* Enhanced gradients */
 .eco-gradient {
   background: linear-gradient(135deg, #22c55e 0%, #16a34a 50%, #15803d 100%);
 }
@@ -100,13 +124,109 @@ body {
   background: linear-gradient(135deg, #f59e0b 0%, #d97706 50%, #b45309 100%);
 }
 
+/* Improved neon glow */
 .neon-glow {
-  box-shadow: 0 0 5px currentColor, 0 0 10px currentColor, 0 0 15px currentColor;
+  box-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor;
 }
 
+/* Better parallax background */
 .parallax-bg {
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+/* Enhanced animations */
+@keyframes bounce-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 3s ease-in-out infinite;
+}
+
+/* Improved spacing utilities */
+.section-padding {
+  padding: 5rem 0;
+}
+
+.container-spacing {
+  padding: 0 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Better responsive spacing */
+@media (max-width: 768px) {
+  .card-3d {
+    padding: 1.5rem;
+    margin: 0.75rem 0;
+  }
+  
+  .btn-3d {
+    padding: 0.75rem 1.5rem;
+    margin: 0.25rem;
+  }
+  
+  .section-padding {
+    padding: 3rem 0;
+  }
+  
+  .container-spacing {
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-3d {
+    padding: 1rem;
+  }
+  
+  .btn-3d {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .section-padding {
+    padding: 2rem 0;
+  }
+}
+
+/* Enhanced focus states for accessibility */
+.btn-3d:focus,
+input:focus,
+textarea:focus,
+button:focus {
+  outline: 3px solid rgba(34, 197, 94, 0.5);
+  outline-offset: 2px;
+}
+
+/* Better form styling */
+input, textarea, select {
+  padding: 1rem;
+  border-radius: 0.75rem;
+  border: 2px solid #e5e7eb;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: #22c55e;
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1);
+}
+
+/* Improved grid spacing */
+.grid-spacing > * {
+  margin-bottom: 2rem;
+}
+
+.grid-spacing-sm > * {
+  margin-bottom: 1rem;
+}
+
+.grid-spacing-lg > * {
+  margin-bottom: 3rem;
 }

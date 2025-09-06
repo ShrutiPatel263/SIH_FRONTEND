@@ -10,7 +10,7 @@ const Card3D = ({ children, className = '', hover = true, ...props }) => {
         z: 50 
       } : {}}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
-      className={`card-3d glass-effect rounded-2xl p-6 shadow-xl ${className}`}
+      className={`card-3d glass-effect rounded-2xl shadow-xl ${className}`}
       style={{ transformStyle: 'preserve-3d' }}
       {...props}
     >
